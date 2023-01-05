@@ -30,7 +30,7 @@ export default function App() {
     initTerra(devId, 'reid').then((aa) => {
       console.log("initTerra", aa)
       setResults((r) => ({ ...r, initTerra: aa.success }));
-      initConnection(connection, token, false).then((a) => {
+      initConnection(connection, token, true).then((a) => {
         console.log("initConnection", a)
         setResults((r) => ({ ...r, initConnection: a.success }));
         let startDate = new Date();
@@ -41,38 +41,38 @@ export default function App() {
         getActivity(connection, startDate, new Date())
           .then((d: any) => console.log(d))
           .catch((e: any) => console.log(e));
-        // getAthlete(connection)
-        //   .then((d: any) =>
-        //     setResults((r) => ({ ...r, getAthlete: d.success }))
-        //   )
-        //   .catch((e: any) => console.log(e));
-        // getBody(connection, startDate, new Date())
-        //   .then((d: any) => setResults((r) => ({ ...r, getBody: d.success })))
-        //   .catch((e: any) => console.log(e));
-        // getDaily(connection, startDate, new Date())
-        //   .then((d: any) => setResults((r) => ({ ...r, getDaily: d.success })))
-        //   .catch((e: any) => console.log(e));
-        // getMenstruation(connection, startDate, new Date())
-        //   .then((d: any) =>
-        //     setResults((r) => ({ ...r, getMenstruation: d.success }))
-        //   )
-        //   .catch((e: any) => console.log(e));
-        // getNutrition(connection, startDate, new Date())
-        //   .then((d: any) =>
-        //     setResults((r) => ({ ...r, getNutrition: d.success }))
-        //   )
-        //   .catch((e: any) => console.log(e));
-        // getSleep(connection, startDate, new Date())
-        //   .then((d: any) => setResults((r) => ({ ...r, getSleep: d.success })))
-        //   .catch((e: any) => console.log(e));
-        // readGlucoseData().then((d) => console.log(d));
-        // getUserId(connection)
-        //   .then((de) => {
-        //     console.log(de.userId);
-        //     setResults((r) => ({ ...r, getUserId: de.userId }));
-        //   })
-        //   .catch((ee) => console.log(ee));
-      });
+        getAthlete(connection)
+          .then((d: any) =>
+            setResults((r) => ({ ...r, getAthlete: d.success }))
+          )
+          .catch((e: any) => console.log(e));
+        getBody(connection, startDate, new Date())
+          .then((d: any) => setResults((r) => ({ ...r, getBody: d.success })))
+          .catch((e: any) => console.log(e));
+        getDaily(connection, startDate, new Date())
+          .then((d: any) => setResults((r) => ({ ...r, getDaily: d.success })))
+          .catch((e: any) => console.log(e));
+        getMenstruation(connection, startDate, new Date())
+          .then((d: any) =>
+            setResults((r) => ({ ...r, getMenstruation: d.success }))
+          )
+          .catch((e: any) => console.log(e));
+        getNutrition(connection, startDate, new Date())
+          .then((d: any) =>
+            setResults((r) => ({ ...r, getNutrition: d.success }))
+          )
+          .catch((e: any) => console.log(e));
+        getSleep(connection, startDate, new Date())
+          .then((d: any) => setResults((r) => ({ ...r, getSleep: d.success })))
+          .catch((e: any) => console.log(e));
+        readGlucoseData().then((d) => console.log(d));
+        getUserId(connection)
+          .then((de) => {
+            console.log(de.userId);
+            setResults((r) => ({ ...r, getUserId: de.userId }));
+          })
+          .catch((ee) => console.log(ee));
+      }).catch((ee) => console.log("fuck", "hello"));;
     });
   }
 
